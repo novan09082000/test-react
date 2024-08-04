@@ -8,21 +8,20 @@ import Sidebar from './components/Sidebar'
 import Content from './components/Content'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isToggled, setIsToggled] = useState(false);
+
+  const toggleState = () => {
+      setIsToggled(prevState => !prevState);
+      console.log(isToggled)
+  };
 
   return (
     <>
-      <Navbar />
-      <div class="grid grid-cols-10 gap-0 h-screen">
-        <Sidebar />
-        <Content />
+      <Navbar setSidebar={toggleState} />
+      <div class="flex m-0">
+        <Sidebar setSidebar={isToggled} />
+        <Content setSidebar={isToggled} />
       </div>
-      {/* <div className="relative min-h-screen w-52 bg-primary">
-        <div className="absolute inset-y-0 left-0 w-16 bg-primary">04</div>
-      </div>
-      <div class="relative h-32 w-32 bg-blue">
-        <div class="absolute inset-0">05</div>
-      </div> */}
     </>
   )
 }
