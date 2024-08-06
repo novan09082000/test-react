@@ -8,7 +8,7 @@ import Sidebar from './components/Sidebar'
 import Content from './components/Content'
 
 function App() {
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(true);
 
   const toggleState = () => {
       setIsToggled(prevState => !prevState);
